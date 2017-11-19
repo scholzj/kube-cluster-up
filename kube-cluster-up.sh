@@ -3,22 +3,13 @@
 set -o verbose
 set -o errexit
 set -o pipefail
-
-export KUBEADM_TOKEN="kubecl.usterupkubeclust"
-export DNS_NAME=$(hostname)
-export IP_ADDRESS=${ip_address}
-export CLUSTER_NAME=${cluster_name}
-export ADDONS="${addons}"
-export KUBERNETES_VERSION="1.8.3"
-
-# Set this only after setting the defaults
 set -o nounset
 
-# We needed to match the hostname expected by kubeadm an the hostname used by kubelet
-FULL_HOSTNAME="$(hostname -f)"
-
-# Make DNS lowercase
-DNS_NAME=$(echo "$DNS_NAME" | tr 'A-Z' 'a-z')
+KUBEADM_TOKEN="kubecl.usterupkubeclust"
+DNS_NAME=$(hostname)
+IP_ADDRESS=$(hostname -I)
+FULL_HOSTNAME=$(hostname -f)
+KUBERNETES_VERSION="1.8.3"
 
 # Start services
 systemctl enable kubelet
