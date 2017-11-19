@@ -29,7 +29,7 @@ EOF
 
 for SAN in $CERT_SANS
 do
-  echo "- $SAN\n" >> /tmp/kubeadm.yaml
+  echo "- $SAN" >> /tmp/kubeadm.yaml
 done
 
 kubeadm reset
