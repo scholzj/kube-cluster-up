@@ -626,10 +626,10 @@ kubectl apply -f /tmp/dashboard.yaml
 rm /tmp/dashboard.yaml
 
 # Prepare the kubectl config file for download to client (DNS)
-export KUBECONFIG_OUTPUT=/home/${USER}/kubeconfig
+export KUBECONFIG_OUTPUT=/home/${SUDO_USER}/kubeconfig
 kubeadm alpha phase kubeconfig user \
   --client-name admin \
   --apiserver-advertise-address 127.0.0.1 \
   > $KUBECONFIG_OUTPUT
-chown ${USER}:${GROUPS} $KUBECONFIG_OUTPUT
+chown ${SUDO_USER}:$(id -g $SUDO_USER) $KUBECONFIG_OUTPUT
 chmod 0600 $KUBECONFIG_OUTPUT
