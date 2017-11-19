@@ -6,9 +6,8 @@ set -o pipefail
 set -o nounset
 
 KUBEADM_TOKEN="kubecl.usterupkubeclust"
-DNS_NAME=$(hostname)
-IP_ADDRESS=$(hostname -I)
-FULL_HOSTNAME=$(hostname -f)
+CERT_SANS="$(hostname) $(hostname -I) $(hostname -f)"
+NODE_NAME=$(hostname -f)
 KUBERNETES_VERSION="1.8.3"
 
 # Start services
@@ -20,15 +19,18 @@ cat >/tmp/kubeadm.yaml <<EOF
 ---
 apiVersion: kubeadm.k8s.io/v1alpha1
 kind: MasterConfiguration
-nodeName: $FULL_HOSTNAME
+nodeName: $NODE_NAME
 token: $KUBEADM_TOKEN
 kubernetesVersion: v$KUBERNETES_VERSION
 apiServerCertSANs:
-- $DNS_NAME
-- $IP_ADDRESS
 - localhost
 - 127.0.0.1
 EOF
+
+for SAN in $CERT_SANS
+do
+  echo "- $SAN\n" >> /tmp/kubeadm.yaml
+done
 
 kubeadm reset
 kubeadm init --config /tmp/kubeadm.yaml
