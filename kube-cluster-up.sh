@@ -40,7 +40,7 @@ rm /tmp/kubeadm.yaml
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 # Install calico
-cat >/tmp/calico.yaml <<EOF
+cat >/tmp/calico.yaml <<'EOF'
 # Calico Version v2.6.2
 # https://docs.projectcalico.org/v2.6/releases#v2.6.2
 # This manifest includes the following component versions:
