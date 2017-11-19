@@ -629,7 +629,7 @@ rm /tmp/dashboard.yaml
 export KUBECONFIG_OUTPUT=/home/${USER}/kubeconfig
 kubeadm alpha phase kubeconfig user \
   --client-name admin \
-  --apiserver-advertise-address $DNS_NAME \
+  --apiserver-advertise-address 127.0.0.1 \
   > $KUBECONFIG_OUTPUT
 chown ${USER}:${GROUPS} $KUBECONFIG_OUTPUT
 chmod 0600 $KUBECONFIG_OUTPUT
