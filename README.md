@@ -70,6 +70,8 @@ The cluster can be stopped using `kube-cluster-down.sh`. It will reset the kubea
 
 ## TODO
 
-[ ] Run `kubelet` as docker container and not as system service
-[ ] Run without `sudo`
-[ ] Run without `kubeadm`
+- [ ] Run `kubelet` as docker container and not as system service
+- [ ] Run without `sudo`
+- [ ] Run without `kubeadm`
+
+
