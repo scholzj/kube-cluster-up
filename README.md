@@ -47,7 +47,7 @@ You can use `kubectl` to deploy your own services.
 
 To communicate with a pod or service directly, use `kubectl` to find the IP address. Use:
 ```
-kubectl get service -o wide
+kubectl get service
 ```
 
 or:
@@ -61,7 +61,7 @@ You can use the IP adress together with the directly
 
 Use the method above to find the Dashboard IP address and enter it into browser:
 ```
-kubectl get service -o wide --namespace kube-system
+kubectl get service kubernetes-dashboard --namespace kube-system
 ```
 
 ## Stopping the cluster
