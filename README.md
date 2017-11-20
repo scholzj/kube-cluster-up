@@ -11,8 +11,8 @@ This project tries to create experience very similar to the one provided by `oc 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Start the cluster](#start-the-cluster)
-- [Communicating with pods and services](#communicating-with-pods-and-services)
-- [Accessing Kubernetes Dashboard](#accessing-kubernetes-dashboard)
+    - [Communicating with pods and services](#communicating-with-pods-and-services)
+    - [Accessing Kubernetes Dashboard](#accessing-kubernetes-dashboard)
 - [Stopping the cluster](#stopping-the-cluster)
 - [TODO](#todo)
 
@@ -43,7 +43,7 @@ kubectl get nodes
 
 You can use `kubectl` to deploy your own services.
 
-## Communicating with pods and services
+### Communicating with pods and services
 
 To communicate with a pod or service directly, use `kubectl` to find the IP address. Use:
 ```
@@ -57,7 +57,7 @@ kubectl get pods -o wide
 
 You can use the IP adress together with the directly
 
-## Accessing Kubernetes Dashboard
+### Accessing Kubernetes Dashboard
 
 Use the method above to find the Dashboard IP address and enter it into browser:
 ```
