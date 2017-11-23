@@ -8,7 +8,7 @@ set -o nounset
 KUBEADM_TOKEN="kubecl.usterupkubeclust"
 CERT_SANS="$(hostname) $(hostname -I) $(hostname -f)"
 NODE_NAME=$(hostname -f)
-KUBERNETES_VERSION="1.8.3"
+KUBERNETES_VERSION="1.8.4"
 
 # Start services
 systemctl enable kubelet
